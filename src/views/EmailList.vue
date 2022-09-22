@@ -135,6 +135,12 @@ export default {
             })
         }
     },
+    watch: {
+        '$route.name'(){
+            this.checkedStatus = [];
+            this.createCheckedStatus();
+        }
+    },
     mounted(){
         this.createCheckedStatus();
     },
