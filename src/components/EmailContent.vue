@@ -4,7 +4,7 @@
             <div class="inis-email-content__close" @click="handleCloseMessageBox">Close (Esc)</div>
             <div class="inis-actions__wrapper">
                 <!-- Checkbox -->
-                <CustomButton @click="handleMarkAsRead">Mark as read (r)</CustomButton>
+                <CustomButton v-if="!emailData.isRead" @click="handleMarkAsRead">Mark as read (r)</CustomButton>
                 <CustomButton @click="handleArchiveStatus">{{ archiveText }} (a)</CustomButton>
             </div>
             <h2 class="inis-email-content__heading">{{ emailData.text }}</h2>
