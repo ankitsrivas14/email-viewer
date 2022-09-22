@@ -93,6 +93,7 @@ export default {
         ...mapEmailActions({
             'MARK_SOME_AS_READ': 'MARK_SOME_AS_READ',
             'MARK_SOME_AS_ARCHIVE': 'MARK_SOME_AS_ARCHIVE',
+            'MARK_SOME_AS_UNARCHIVE': 'MARK_SOME_AS_UNARCHIVE',
         }),
         handleMarkAllRead(){
             const currentStatus = this.isAllMarkedRead;
@@ -119,7 +120,12 @@ export default {
         },
         markSomeAsArchive(){
             const ids = this.checkedStatus.filter(el => el.status).map(el => el.id)
-            this.MARK_SOME_AS_ARCHIVE(ids);
+            if(this.$route.name === 'inbox'){
+                this.MARK_SOME_AS_ARCHIVE(ids);
+            }
+            else{
+                this.MARK_SOME_AS_UNARCHIVE(ids);
+            }
             this.createCheckedStatus();
         },
         getCheckedStatus(id){

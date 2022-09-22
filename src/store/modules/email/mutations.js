@@ -56,4 +56,15 @@ export default{
             return el;
         })
     },
+    [Types.MARK_SOME_AS_UNARCHIVE]: (state, ids) => {
+        state.emails = state.emails.map(el => {
+            if(ids.includes(el.id)){
+                return {
+                    ...el,
+                    isArchive: false
+                }
+            }
+            return el;
+        })
+    },
 }

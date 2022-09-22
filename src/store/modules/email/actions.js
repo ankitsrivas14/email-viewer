@@ -16,4 +16,7 @@ export default {
     MARK_SOME_AS_ARCHIVE({commit}, ids){
         commit(Types.MARK_SOME_AS_ARCHIVE, ids);
     },
+    MARK_SOME_AS_UNARCHIVE({commit}, ids){
+        commit(Types.MARK_SOME_AS_UNARCHIVE, ids);
+    },
 }
